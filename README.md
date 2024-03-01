@@ -1,5 +1,5 @@
 # ont-nb-DNA
-This repository is home to a variety of scripts and resources utilized for processing and analyzing Oxford Nanopore Sequencing (ONT) Data in the context of Non-B DNA Structures
+This repository is home to a variety of scripts utilized for preprocessing and analyzing Oxford Nanopore Sequencing (ONT) Data in the context of Non-B DNA Structures.
 
 ## PREPROCESSING
 This Image is the overall workflow flow preprocessing... Will be here when I complete.
@@ -8,8 +8,8 @@ This Image is the overall workflow flow preprocessing... Will be here when I com
 The FAST5 format is the standard sequencing output for Oxford Nanopore sequencers. Based on the hierarchical data format HDF5 format which enables storage of large and comples data.
 Remember, these are binary so you need tools to view the contents of the data (h5py package in python)
 
-For optimal performance, Dorado requires POD5 file input. We first convert directories of fast5s to pod5s prior to basecalling and alignment.
-
+For optimal performance, Dorado requires POD5 file input. We first convert directories of fast5s to pod5s prior to basecalling and alignment.\
+  * The script can be found at ... ```PUT SCRIPT LOCATION IN REPO HERE```
 ```bash
 module load python/3.10 gcc arrow/11
 python -c "import pyarrow"
@@ -28,6 +28,7 @@ In this code we run Dorado with the model dna_r9.4.1_e8_hac@v3.3.\
 r9.4.1 = pore type (flowcell type). ONT's newest flowcell is 10.4.1)\
 e8 = Chemistry Type\
 hac = balanced model choice (fast, hac, sup are the 3 model choices, hac being a balance between speed and accuracy)\
+ * The script can be found at ... ```PUT SCRIPT LOCATION IN REPO HERE```
 ```bash
 #This script is to run oxford nanopores dorado basecaller to generate aligned basecalls from pod5 data
 #This step must be done first, prior to requiggling (now known as signal mapping refinement)
@@ -70,7 +71,14 @@ for file in "${files[@]}"; do
 done
 ```
 
-### Preparing non-b windows from the non-b database
+### Preparing non-b windows from the non-b database (USING HG38 REFERENCE GENOME)
+
+1. Download .gff files from [The Non-B DNA Database](https://nonb-abcc.ncifcrf.gov/apps/ftp/browse). HG38 is the most recent annotation they have available
+2. `create_nonb_dfs.py` - converts gff files into large df of non-b annotations
+3. `fix_windows.py` - fixes windows around non-b motifs in the non-b motif df
+4. `fix_windows_opposite.py` - fixes windows around non-b motifs on the reverse strand
+5. `create_motif_free_windows.py` - find motif free fregions (B-DNA)
+6. `find_nonoverlapping_windows.py` - find windows of B-DNA and Non-B DNA that do not overlap
 
 ### Preprocessing plots
 
