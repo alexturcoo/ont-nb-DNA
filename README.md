@@ -24,6 +24,8 @@ pod5 convert fast5 \
 There are a lot of options for basecalling Oxford Nanopore Sequencing Data. Albacore and Guppy are commonly used however Albacore is outdated and Guppy has
 been shown to be outperformed by Oxford Nanopore's Newest Open Source Basecaller called Dorado. Dorado can also call modified bases (5mC, 5hmC, etc).
 
+[aws benchmarks, Dorado Vs Guppy](https://aws.amazon.com/blogs/hpc/benchmarking-the-oxford-nanopore-technologies-basecallers-on-aws/#:~:text=Dorado%20delivers%20significantly%20higher%20performance,instance%20type%20tested%2C%20the%20p4d.)
+
 In this code we run Dorado with the model dna_r9.4.1_e8_hac@v3.3.\
 r9.4.1 = pore type (flowcell type). ONT's newest flowcell is 10.4.1)\
 e8 = Chemistry Type\
@@ -70,6 +72,10 @@ for file in "${files[@]}"; do
 
 done
 ```
+After running, you will have a corresponding bam file for each pod5 file.
+You can change this to produce a single bam file for all pod5s directly however I found it
+to be faster and easier to keep track of when doing one file at a time. For
+Downstream processing you must `merge` the bams, and then `sort` and `index` the merged bam using samtools).
 
 ### Preparing non-b windows from the non-b database (USING HG38 REFERENCE GENOME)
 
