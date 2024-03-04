@@ -1,10 +1,11 @@
 # ont-nb-DNA
 This repository is home to a variety of scripts utilized for preprocessing and analyzing Oxford Nanopore Sequencing (ONT) Data in the context of Non-B DNA Structures.
 
-## PREPROCESSING
+# PREPROCESSING
 This Image is the overall workflow flow preprocessing... Will be here when I complete.
+- [ ] Add preprocessing workflow figure
 
-### Converting Fast5 ONT files to POD5
+## Converting Fast5 ONT files to POD5
 The FAST5 format is the standard sequencing output for Oxford Nanopore sequencers. Based on the hierarchical data format HDF5 format which enables storage of large and comples data.
 Remember, these are binary so you need tools to view the contents of the data (h5py package in python)
 
@@ -20,16 +21,16 @@ pod5 convert fast5 \
     --one-to-one /home/alextu/scratch/data/hgsvc_data/HG01457/20211022_211012_21-lee-006_PCT0053_2-A5-D5/fast5_pass # --one-to-one command matches fast5 file name to pod5
 ```
 
-### Basecalling + Alignment with Dorado
+## Basecalling + Alignment with Dorado
 There are a lot of options for basecalling Oxford Nanopore Sequencing Data. Albacore and Guppy are commonly used however Albacore is outdated and Guppy has
 been shown to be outperformed by Oxford Nanopore's Newest Open Source Basecaller called Dorado. Dorado can also call modified bases (5mC, 5hmC, etc).
 
 [aws benchmarks, Dorado Vs Guppy](https://aws.amazon.com/blogs/hpc/benchmarking-the-oxford-nanopore-technologies-basecallers-on-aws/#:~:text=Dorado%20delivers%20significantly%20higher%20performance,instance%20type%20tested%2C%20the%20p4d.)
 
-In this code we run Dorado with the model dna_r9.4.1_e8_hac@v3.3.\
-r9.4.1 = pore type (flowcell type). ONT's newest flowcell is 10.4.1)\
-e8 = Chemistry Type\
-hac = balanced model choice (fast, hac, sup are the 3 model choices, hac being a balance between speed and accuracy)\
+In this code we run Dorado with the model `dna_r9.4.1_e8_hac@v3.3.`\
+`r9.4.1` = pore type (flowcell type). ONT's newest flowcell is 10.4.1)\
+`e8` = Chemistry Type\
+`hac` = balanced model choice (fast, hac, sup are the 3 model choices, hac being a balance between speed and accuracy)\
  * The script can be found at ... ```PUT SCRIPT LOCATION IN REPO HERE```
 ```bash
 #This script is to run oxford nanopores dorado basecaller to generate aligned basecalls from pod5 data
@@ -77,7 +78,7 @@ You can change this to produce a single bam file for all pod5s directly however 
 to be faster and easier to keep track of when doing one file at a time. For
 Downstream processing you must `merge` the bams, and then `sort` and `index` the merged bam using samtools).
 
-### Preparing non-b windows from the non-b database (USING HG38 REFERENCE GENOME)
+## Preparing non-b windows from the non-b database (USING HG38 REFERENCE GENOME)
 
 1. Download .gff files from [The Non-B DNA Database](https://nonb-abcc.ncifcrf.gov/apps/ftp/browse). HG38 is the most recent annotation they have available
 2. `create_nonb_dfs.py` - converts gff files into large df of non-b annotations
@@ -86,13 +87,13 @@ Downstream processing you must `merge` the bams, and then `sort` and `index` the
 5. `create_motif_free_windows.py` - find motif free fregions (B-DNA)
 6. `find_nonoverlapping_windows.py` - find windows of B-DNA and Non-B DNA that do not overlap
 
-### Preprocessing plots
+## Preprocessing plots
 
-## MATCHING ONT READS TO NON-B WINDOWS
+## Matching ONT Reads to Non-B Windows
 
-### Filter Basecalled + Aligned Reads in range of non-b structures
+## Filter Basecalled + Aligned Reads in range of non-b structures
 
-### Matching ONT Reads to Non-B windows
+## Matching ONT Reads to Non-B windows
 
-### Extracting Translocation times of mapped reads
+## Extracting Translocation times of mapped reads
 
