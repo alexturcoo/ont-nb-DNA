@@ -79,7 +79,7 @@ to be faster and easier to keep track of when doing one file at a time. For
 Downstream processing you must `merge` the bams, and then `sort` and `index` the merged bam using samtools).
 
 ## Preparing non-b windows from the non-b database (USING HG38 REFERENCE GENOME)
-
+* These scripts can be found at ```preprocessing/nonb_db_preprocessing_hg38/```
 1. Download .gff files from [The Non-B DNA Database](https://nonb-abcc.ncifcrf.gov/apps/ftp/browse). HG38 is the most recent annotation they have available
 2. `create_nonb_dfs.py` - converts gff files into large df of non-b annotations
 3. `fix_windows.py` - fixes windows around non-b motifs in the non-b motif df
@@ -88,6 +88,7 @@ Downstream processing you must `merge` the bams, and then `sort` and `index` the
 6. `find_nonoverlapping_windows.py` - find windows of B-DNA and Non-B DNA that do not overlap
 
 ## Computing Translocation Times
+* These scripts can be found at ```preprocessing/translocation_time_extraction/```
 
 1. `make_query_bounds.py` - Get ranges of nonB structures (smallest start to largest end) on each chromosome
 2. `filter_query_samtools.py` - Filter Basecalled + Aligned Reads in ranges of non-b structures on each chromosome
