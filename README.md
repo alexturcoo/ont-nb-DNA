@@ -87,13 +87,11 @@ Downstream processing you must `merge` the bams, and then `sort` and `index` the
 5. `create_motif_free_windows.py` - find motif free fregions (B-DNA)
 6. `find_nonoverlapping_windows.py` - find windows of B-DNA and Non-B DNA that do not overlap
 
-## Preprocessing plots
+## Computing Translocation Times
 
-## Filter Basecalled + Aligned Reads in range of non-b structures
-
-## Matching ONT Reads to Non-B Windows
-
-## Matching ONT Reads to Non-B windows
-
-## Extracting Translocation times of mapped reads
+1. `make_query_bounds.py` - Get ranges of nonB structures (smallest start to largest end) on each chromosome
+2. `filter_query_samtools.py` - Filter Basecalled + Aligned Reads in ranges of non-b structures on each chromosome
+3. `create_window_inputs.py` - Match Filtered ONT Reads to Non-B Windows
+4. `metric_extraction.py` - Extract translocation time metrics across all reads
+5. `extract_tts.py` - Extract specific window translocation times of matched reads
 
