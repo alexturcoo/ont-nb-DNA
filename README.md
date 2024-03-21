@@ -79,6 +79,8 @@ to be faster and easier to keep track of when doing one file at a time. For
 Downstream processing you must `merge` the bams, and then `sort` and `index` the merged bam using samtools).
 
 ## Preparing non-b windows from the non-b database (USING HG38 REFERENCE GENOME)
+Run these scripts in the following order to prepare windows of B-DNA and Non-B DNA. Annotations are based off of non-B database.
+These scripts will prepare 100bp windows centered around the non-B motif, and regions in between these non-B motifs are taken as regular B-DNA.
 * These scripts can be found at ```preprocessing/nonb_db_preprocessing_hg38/```
 1. Download .gff files from [The Non-B DNA Database](https://nonb-abcc.ncifcrf.gov/apps/ftp/browse). HG38 is the most recent annotation they have available
 2. `create_nonb_dfs.py` - converts gff files into large df of non-b annotations
@@ -88,6 +90,9 @@ Downstream processing you must `merge` the bams, and then `sort` and `index` the
 6. `find_nonoverlapping_windows.py` - find windows of B-DNA and Non-B DNA that do not overlap
 
 ## Computing Translocation Times
+Run these scripts in the following order to extract translocation time metrics from ONT reads that match to the created windows.
+We extract a metric called `dwell` which represents the number of sample points assigned to a base. We divide this dwell metric
+by the sample rate in order to calculate translocation times (time it took for base to pass through nanopore)
 * These scripts can be found at ```preprocessing/translocation_time_extraction/```
 
 1. `make_query_bounds.py` - Get ranges of nonB structures (smallest start to largest end) on each chromosome
@@ -96,3 +101,12 @@ Downstream processing you must `merge` the bams, and then `sort` and `index` the
 4. `metric_extraction.py` - Extract translocation time metrics across all reads
 5. `extract_tts.py` - Extract specific window translocation times of matched reads
 
+## Preprocessing Plots
+Run these scripts to produce plots and tables to analyze the preprocessed data.
+* These scripts can be found at ```preprocessing/preprocessing_ploting```
+
+1. `basic_read_plotting.py` - basic signal plotting with Remora (Without signal mapping refinement), simple pod5 raw signal plotting
+2. `signal_mapping_refinement.py` - signal plotting with Remora (With Signal Mapping Refinement)
+3. `heatmap_differences.py` - display a heatmap showing the differences between annotations/counts (on hg38 vs chm13) of nonB structures on each chromosome 
+4. `make_plots_nonb_motiflength_distributions.py` - plot the motif length distribution of non-b DNA from the non-B DNA database
+5. `nonb_exploration.py` - Get the # of each type of feature, find longest and shortest non-B motif, plot stacked bar of features per chromosome, individual heatmaps of structures per chrom
