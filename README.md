@@ -9,8 +9,8 @@ This Image is the overall workflow flow preprocessing... Will be here when I com
 The FAST5 format is the standard sequencing output for Oxford Nanopore sequencers. Based on the hierarchical data format HDF5 format which enables storage of large and comples data.
 Remember, these are binary so you need tools to view the contents of the data (h5py package in python)
 
-For optimal performance, Dorado requires POD5 file input. We first convert directories of fast5s to pod5s prior to basecalling and alignment.\
-  * The script can be found at ... ```PUT SCRIPT LOCATION IN REPO HERE```
+For optimal performance, Dorado requires POD5 file input. We first convert directories of fast5s to pod5s prior to basecalling and alignment.
+  * The script can be found at ... ```preprocessing/basecalling/```
 ```bash
 module load python/3.10 gcc arrow/11
 python -c "import pyarrow"
@@ -31,7 +31,7 @@ In this code we run Dorado with the model `dna_r9.4.1_e8_hac@v3.3.`\
 `r9.4.1` = pore type (flowcell type). ONT's newest flowcell is 10.4.1)\
 `e8` = Chemistry Type\
 `hac` = balanced model choice (fast, hac, sup are the 3 model choices, hac being a balance between speed and accuracy)\
- * The script can be found at ... ```PUT SCRIPT LOCATION IN REPO HERE```
+ * The script can be found at ... ```preprocessing/basecalling/```
 ```bash
 #This script is to run oxford nanopores dorado basecaller to generate aligned basecalls from pod5 data
 #This step must be done first, prior to requiggling (now known as signal mapping refinement)
