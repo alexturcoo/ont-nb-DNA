@@ -89,9 +89,9 @@ Downstream processing you must `merge` the bams, and then `sort` and `index` the
 
 ## Preprocessing plots
 
-## Matching ONT Reads to Non-B Windows
-
 ## Filter Basecalled + Aligned Reads in range of non-b structures
+
+## Matching ONT Reads to Non-B Windows
 
 ## Matching ONT Reads to Non-B windows
 
