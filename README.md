@@ -31,7 +31,7 @@ In this code we run Dorado with the model `dna_r9.4.1_e8_hac@v3.3.`\
 `r9.4.1` = pore type (flowcell type). ONT's newest flowcell is 10.4.1)\
 `e8` = Chemistry Type\
 `hac` = balanced model choice (fast, hac, sup are the 3 model choices, hac being a balance between speed and accuracy)\
- * The script can be found at ... ```preprocessing/basecalling/```
+ * The script can be found at ```preprocessing/basecalling/```
 ```bash
 #This script is to run oxford nanopores dorado basecaller to generate aligned basecalls from pod5 data
 #This step must be done first, prior to requiggling (now known as signal mapping refinement)
