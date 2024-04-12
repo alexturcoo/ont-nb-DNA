@@ -1,6 +1,5 @@
 import sys
 import os
-import networkx as nx
 import pandas as pd
 import numpy as np
 from subprocess import call
@@ -72,12 +71,12 @@ for gr in groups:
 pool = Pool(10)
 # pool.map(make_control_windows_chr_strand, chr_strand_windows_inputs)
 pool.map(make_control_windows_chr_strand_conservative, chr_strand_windows_inputs)
-#control_windows = pd.DataFrame(columns=['chr', 'feature', 'start', 'end', 'strand', 'motif_len', 'win_start',
-#                                        'win_end'])
-#control_files = [name for name in os.listdir(save_path) if '.csv' in name]
-#for cf in control_files:
-#    cf_df = pd.read_csv(os.path.join(save_path, cf), index_col=0)
-#    control_windows = control_windows._append(cf_df, ignore_index=True)
-#control_windows.to_csv(os.path.join(save_path, 'all_controls_conservative_0_based.csv'))
+control_windows = pd.DataFrame(columns=['chr', 'feature', 'start', 'end', 'strand', 'motif_len', 'win_start',
+                                        'win_end'])
+control_files = [name for name in os.listdir(save_path) if '.csv' in name]
+for cf in control_files:
+    cf_df = pd.read_csv(os.path.join(save_path, cf), index_col=0)
+    control_windows = control_windows._append(cf_df, ignore_index=True)
+control_windows.to_csv(os.path.join(save_path, 'all_controls_conservative_0_based.csv'))
 
 
