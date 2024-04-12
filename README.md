@@ -88,6 +88,7 @@ These scripts will prepare 100bp windows centered around the non-B motif, and re
 4. `fix_windows_opposite.py` - fixes windows around non-b motifs on the reverse strand
 5. `create_motif_free_windows.py` - find motif free fregions (B-DNA)
 6. `find_nonoverlapping_windows.py` - find windows of B-DNA and Non-B DNA that do not overlap
+7. `make_query_bounds.py` - Get ranges of nonB structures (smallest start to largest end) on each chromosome
 
 ## Computing Translocation Times
 Run these scripts in the following order to extract translocation time metrics from ONT reads that match to the created windows.
@@ -95,11 +96,10 @@ We extract a metric called `dwell` which represents the number of sample points 
 by the sample rate in order to calculate translocation times (time it took for base to pass through nanopore)
 * These scripts can be found at ```preprocessing/translocation_time_extraction/```
 
-1. `make_query_bounds.py` - Get ranges of nonB structures (smallest start to largest end) on each chromosome
-2. `filter_query_samtools.py` - Filter Basecalled + Aligned Reads in ranges of non-b structures on each chromosome
-3. `create_window_inputs.py` - Match Filtered ONT Reads to Non-B Windows
-4. `metric_extraction.py` - Extract translocation time metrics across all reads
-5. `extract_tts.py` - Extract specific window translocation times of matched reads
+1. `filter_query_samtools.py` - Filter Basecalled + Aligned Reads in ranges of non-b structures on each chromosome
+2. `create_window_inputs.py` - Match Filtered ONT Reads to Non-B Windows
+3. `metric_extraction.py` - Extract translocation time metrics across all reads
+4. `extract_tts.py` - Extract specific window translocation times of matched reads
 
 ## Preprocessing Plots
 Run these scripts to produce plots and tables to analyze the preprocessed data.
