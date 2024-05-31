@@ -110,3 +110,4 @@ Run these scripts to produce plots and tables to analyze the preprocessed data.
 3. `heatmap_differences.py` - display a heatmap showing the differences between annotations/counts (on hg38 vs chm13) of nonB structures on each chromosome 
 4. `make_plots_nonb_motiflength_distributions.py` - plot the motif length distribution of non-b DNA from the non-B DNA database
 5. `nonb_exploration.py` - Get the # of each type of feature, find longest and shortest non-B motif, plot stacked bar of features per chromosome, individual heatmaps of structures per chrom
+6. `compare_tt_quantiles.py` - Compare quantiles of exracted translocation time values for different B vs Non-B DNA structures
