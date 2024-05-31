@@ -2,8 +2,8 @@
 This repository is home to a variety of scripts utilized for preprocessing and analyzing Oxford Nanopore Sequencing (ONT) Data in the context of Non-B DNA Structures.
 
 # PREPROCESSING
-This Image is the overall workflow flow preprocessing... Will be here when I complete.
-![workflow](https://github.com/alexturcoo/ont-nb-DNA/tree/main/imgs/workflow.png)
+This Image is the overall preprocessing workflow
+![workflow](/imgs/workflow.png)
 
 ## Converting Fast5 ONT files to POD5
 The FAST5 format is the standard sequencing output for Oxford Nanopore sequencers. Based on the hierarchical data format HDF5 format which enables storage of large and comples data.
