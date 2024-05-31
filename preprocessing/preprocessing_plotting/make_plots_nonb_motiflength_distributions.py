@@ -9,12 +9,13 @@ path = '/home/alextu/scratch/nonb_db_preprocessing/nonb_windows/all_non_b_motifs
 chromosome_df = pd.read_csv(path)
 chromosome_df = chromosome_df.sort_values(by='start').reset_index(drop=True)
 chromosome_df = chromosome_df[chromosome_df['motif_len']<= 150].reset_index(drop=True)
+chromosome_df = chromosome_df[chromosome_df['feature']== "Short_Tandem_Repeat"].reset_index(drop=True)
 p = sns.displot(chromosome_df, x="motif_len", hue="feature", kind="kde", fill=True)
 # p.set(xlabel='Length')
 p.set(xlabel='Length', title='Potential Non-B DNA structures\n(Motifs w/ length > 150 are cut out)')
 p._legend.set_title('Non-B DNA structures')
 plt.tight_layout()
-plt.savefig('/home/alextu/scratch/nonb_db_preprocessing/imgs/motif_length_density_l150_hg38.png')
+plt.savefig('/home/alextu/scratch/nonb_db_preprocessing/imgs/motif_length_density_l150_hg38_STR.png')
 
 ### PLOT BY CHROMOSOME
 #p = sns.displot(chromosome_df, x="motif_len", hue="feature", kind="kde", col="chr", fill=True, col_wrap=5)
