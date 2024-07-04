@@ -121,3 +121,7 @@ These scripts are used to create the dataand develop a simple Neural Net For Cla
 
 1. `prepare_datasets_onedirection.py` - script to produce data formatted for model (calculates median translocation time for windows w/ coverage > 5 reads for one type of strand)
 2. `model_play.ipynb` - A jupyter notebook containing code to format, scale, build, deploy, and assess a simple feed forward neural network for classification
+
+Highlighting the results of the classification model
+![neuralnet_results](/imgsresults_lr_1e-05_epochs_200_batch_32_noweight.png)
+
