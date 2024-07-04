@@ -113,7 +113,7 @@ Run these scripts to produce plots and tables to analyze the preprocessed data.
 6. `compare_tt_quantiles.py` - Compare quantiles of exracted translocation time values for different B vs Non-B DNA structures
 
 Example of script #6 output to show quantiles of translocation time values for specific non-B DNA motifs
-![workflow](/imgs/G_)
+![quantile_plot](/imgs/G_Quadruplex_Motif_Control_HG00268_chrY_chr22.png)
 
 ## Creating A Basic Feedforward Neural Net To Classify non-B DNA Structures based on Translocation Times
 These scripts are used to create the dataand develop a simple Neural Net For Classification of non-B DNA structures
