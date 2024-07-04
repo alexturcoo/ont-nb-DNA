@@ -111,3 +111,10 @@ Run these scripts to produce plots and tables to analyze the preprocessed data.
 4. `make_plots_nonb_motiflength_distributions.py` - plot the motif length distribution of non-b DNA from the non-B DNA database
 5. `nonb_exploration.py` - Get the # of each type of feature, find longest and shortest non-B motif, plot stacked bar of features per chromosome, individual heatmaps of structures per chrom
 6. `compare_tt_quantiles.py` - Compare quantiles of exracted translocation time values for different B vs Non-B DNA structures
+
+## Creating A Basic Feedforward Neural Net To Classify non-B DNA Structures based on Translocation Times
+These scripts are used to create the dataand develop a simple Neural Net For Classification of non-B DNA structures
+* These scripts can be found at
+
+1. `prepare_datasets_onedirection.py` - script to produce data formatted for model (calculates median translocation time for windows w/ coverage > 5 reads for one type of strand)
+2. `model_play.ipynb` - A jupyter notebook containing code to format, scale, build, deploy, and assess a simple feed forward neural network for classification
