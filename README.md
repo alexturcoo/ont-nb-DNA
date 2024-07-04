@@ -122,6 +122,12 @@ These scripts are used to create the dataand develop a simple Neural Net For Cla
 1. `prepare_datasets_onedirection.py` - script to produce data formatted for model (calculates median translocation time for windows w/ coverage > 5 reads for one type of strand)
 2. `model_play.ipynb` - A jupyter notebook containing code to format, scale, build, deploy, and assess a simple feed forward neural network to classify non-B DNA motifs based on translocation time profiles
 
-Highlighting the results of the classification model
+Highlighting the preliminary results of the classification model (these results shown highlight a model trained with 40,000 BDNA windows and 32,000 non-B DNA (G_Quadruplex) windows)
 ![neuralnet_results](/imgs/results_lr_1e-05_epochs_200_batch_32_noweight.png)
+
+STILL TO DO
+- [ ] Process ALL translocation time data for HG00733 and HG00733 (get much more data, assess differences in samples potentially)
+- [ ] Implement more features (mean of translocation times, stddev of translocation times, all others you can think of including biological features)
+- [ ] Compare neural net model to other classical machine learning models (train, tune, and test all the models and assess performance)
+- [ ] Tune neural network and assess optimal model (# of neurons, activation, add weight decay for more generalizable model)
 
