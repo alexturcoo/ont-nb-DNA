@@ -112,6 +112,9 @@ Run these scripts to produce plots and tables to analyze the preprocessed data.
 5. `nonb_exploration.py` - Get the # of each type of feature, find longest and shortest non-B motif, plot stacked bar of features per chromosome, individual heatmaps of structures per chrom
 6. `compare_tt_quantiles.py` - Compare quantiles of exracted translocation time values for different B vs Non-B DNA structures
 
+Example of script #6 output to show quantiles of translocation time values for specific non-B DNA motifs
+![workflow](/imgs/G_)
+
 ## Creating A Basic Feedforward Neural Net To Classify non-B DNA Structures based on Translocation Times
 These scripts are used to create the dataand develop a simple Neural Net For Classification of non-B DNA structures
 * These scripts can be found at
