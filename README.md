@@ -123,5 +123,5 @@ These scripts are used to create the dataand develop a simple Neural Net For Cla
 2. `model_play.ipynb` - A jupyter notebook containing code to format, scale, build, deploy, and assess a simple feed forward neural network for classification
 
 Highlighting the results of the classification model
-![neuralnet_results](/imgsresults_lr_1e-05_epochs_200_batch_32_noweight.png)
+![neuralnet_results](/imgs/results_lr_1e-05_epochs_200_batch_32_noweight.png)
 
